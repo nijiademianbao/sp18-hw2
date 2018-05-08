@@ -59,12 +59,12 @@ public class GlobeSortClient {
         System.out.println("Response time: " + Long.toString(responseTime) + " ms.");
 
         System.out.println("Measurements: ");
-        float appThroughput = double(values.length) / responseTime * 1000;
-        float networkThroughput = double(values.length) / (responseTime - sortTime) * 1000 * 2;
-        float latency = double(pingTime) / 2;
+        double appThroughput = values.length * 1000.000 / responseTime;
+        double networkThroughput = values.length * 1000.0 / (responseTime - sortTime) * 2;
+        double latency = pingTime * 1.0 / 2;
 
         DecimalFormat df = new DecimalFormat();
-        String style = "0.0000";
+        String style = "0.00";
         df.applyPattern(style);
         System.out.println("App Throughput:\t" + df.format(appThroughput));
         System.out.println("Network Throughput:\t" + df.format(networkThroughput));
