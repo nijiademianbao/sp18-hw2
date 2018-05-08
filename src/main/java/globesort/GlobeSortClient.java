@@ -57,7 +57,18 @@ public class GlobeSortClient {
         long sortTime = response.getSortTime();
         System.out.println("Sort time: " + Long.toString(sortTime) + " ms.");
         System.out.println("Response time: " + Long.toString(responseTime) + " ms.");
-        System.out.println("Sorted array");
+
+        System.out.println("Measurements: ");
+        float appThroughput = double(values.length) / responseTime * 1000;
+        float networkThroughput = double(values.length) / (responseTime - sortTime) * 1000 * 2;
+        float latency = double(pingTime) / 2;
+
+        DecimalFormat df = new DecimalFormat();
+        String style = "0.0000";
+        df.applyPattern(style);
+        System.out.println("App Throughput:\t" + df.format(appThroughput));
+        System.out.println("Network Throughput:\t" + df.format(networkThroughput));
+        System.out.println("Latency:\t" + df.format(latency));
     }
 
     public void shutdown() throws InterruptedException {
