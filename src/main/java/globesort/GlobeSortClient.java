@@ -65,9 +65,9 @@ public class GlobeSortClient {
         double latency = pingTime * 1.0 / 2;
 
         DecimalFormat df = new DecimalFormat("#.00");
-        System.out.println("App Throughput:\t" + df.format(appThroughput));
-        System.out.println("Network Throughput:\t" + df.format(networkThroughput));
-        System.out.println("Latency:\t" + df.format(latency));
+        System.out.println("App Throughput:     " + df.format(appThroughput));
+        System.out.println("Network Throughput: " + df.format(networkThroughput));
+        System.out.println("Latency:            " + df.format(latency));
     }
 
     public void shutdown() throws InterruptedException {
