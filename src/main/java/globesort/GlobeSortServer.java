@@ -91,8 +91,9 @@ public class GlobeSortServer {
             Arrays.sort(values);
             long end = System.currentTimeMillis();
             long sortTime = end - start;
+            int sortedTime = new Long(sortTime).intValue();
             IntArray.Builder responseBuilder = IntArray.newBuilder();
-            responseBuilder.addValues(sortTime.intValue());
+            responseBuilder.addValues(sortedTime);
             for(Integer val : values) {
                 responseBuilder.addValues(val);
             }
